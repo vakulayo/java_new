@@ -7,12 +7,15 @@ public class MyFirstProgram {
        hello("Kate");
        hello("super-user");
 
-       double l=5.0;
-        System.out.println("площадь квадрата со стороной "+l+"  = "+area(l));
 
-        double a= 4;
-        double b  = 6;
-        System.out.println("площадь прямоугольника со сторонами  "+a+" и " +b+"  = "+area(a,b));
+       Square square = new Square(5.0);
+
+        System.out.println("площадь квадрата со стороной "+square.l+"  = "+area(square));
+
+
+        Rectangle rectangle = new Rectangle(4,6);
+       
+        System.out.println("площадь прямоугольника со сторонами  "+rectangle.a+" и " +rectangle.b+"  = "+area(rectangle));
 
 
     }
@@ -21,11 +24,11 @@ public class MyFirstProgram {
         System.out.println("Hello, " + s +"!");
     }
 
-    public static double area(double l){
-        return l*l;
+    public static double area(Square square){
+        return square.l*square.l;
     }
 
-    public static double area(double a, double b){
-        return a*b;
+    public static double area(Rectangle rectangle){
+        return rectangle.a*rectangle.b;
     }
 }
