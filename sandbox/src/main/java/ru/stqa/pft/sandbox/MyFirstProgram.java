@@ -10,12 +10,12 @@ public class MyFirstProgram {
 
        Square square = new Square(5.0);
 
-        System.out.println("площадь квадрата со стороной "+square.l+"  = "+area(square));
+        System.out.println("площадь квадрата со стороной "+square.l+"  = "+square.area());
 
 
         Rectangle rectangle = new Rectangle(4,6);
-       
-        System.out.println("площадь прямоугольника со сторонами  "+rectangle.a+" и " +rectangle.b+"  = "+area(rectangle));
+
+        System.out.println("площадь прямоугольника со сторонами  "+rectangle.a+" и " +rectangle.b+"  = "+rectangle.area());
 
 
     }
@@ -24,11 +24,7 @@ public class MyFirstProgram {
         System.out.println("Hello, " + s +"!");
     }
 
-    public static double area(Square square){
-        return square.l*square.l;
-    }
 
-    public static double area(Rectangle rectangle){
-        return rectangle.a*rectangle.b;
-    }
+
+
 }
