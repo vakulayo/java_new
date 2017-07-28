@@ -21,6 +21,10 @@ public class ContactHelper extends HelperBase {
     type(By.name("mobile"), contactData.getMobile());
   }
 
+  public void deleteSelectedContact(){
+    click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+  }
+
 
 
 
@@ -28,7 +32,16 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//div[@id='content']/form/input[21]"));
   }
 
-  public void returnToHomePage(){
-    click(By.linkText("home"));
+  public void selectContact(){
+    click(By.xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input"));
+
+
   }
+
+  public void closeAlertWindow(){
+    wd.switchTo().alert().accept();
+  }
+
+
+
 }
