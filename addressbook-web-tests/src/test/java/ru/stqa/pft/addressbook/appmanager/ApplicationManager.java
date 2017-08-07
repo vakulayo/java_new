@@ -27,11 +27,14 @@ public class ApplicationManager {
 
 
   public void init() {
-    System.setProperty("webdriver.gecko.driver", "c:\\SeleniumGecko\\geckodriver-v0.17.0-win32\\geckodriver.exe");
 
-    int browser = BrowserType.MOZILLA;
 
-    if (browser == BrowserType.MOZILLA) { wd = new FirefoxDriver();}
+
+
+    if (browser == BrowserType.MOZILLA) {
+      wd = new FirefoxDriver();
+      System.setProperty("webdriver.gecko.driver", "c:\\SeleniumGecko\\geckodriver-v0.17.0-win32\\geckodriver.exe");
+    }
     else if (browser == BrowserType.INTERNET_EXPLORER) {wd = new InternetExplorerDriver();}
     else if (browser == BrowserType.DEFAULT) {wd = new ChromeDriver();}
 
