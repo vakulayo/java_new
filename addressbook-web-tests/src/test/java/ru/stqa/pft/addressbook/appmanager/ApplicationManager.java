@@ -38,7 +38,7 @@ public class ApplicationManager {
     else if (browser == BrowserType.INTERNET_EXPLORER) {wd = new InternetExplorerDriver();}
     else if (browser == BrowserType.DEFAULT) {wd = new ChromeDriver();}
 
-    wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 
    wd.get("http://localhost/addressbook/group.php");
     groupHelper = new GroupHelper(wd);
