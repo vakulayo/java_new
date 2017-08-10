@@ -82,4 +82,9 @@ public class ContactHelper extends HelperBase {
   private void gotoAddNewPage() {
     click(By.linkText("add new"));
   }
+
+  public int getContactCount() {
+    return wd.findElements(By.name("selected[]")).size();
+
+  }
 }
