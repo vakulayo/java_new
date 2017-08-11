@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -17,13 +18,13 @@ public class ContactCreationTests extends TestBase {
   @Test
   public void testContactCreation() {
     app.getNavigationHelper().gotoHomePage();
-    int before = app.getContactHelper().getContactCount();
+    List<ContactData> before = app.getContactHelper().getContactList();
     app.getNavigationHelper().gotoAddNewPage();
     app.getContactHelper().fillContactForm(new ContactData("Kate", "Sorokina", "Sirenevaya ul. 3 apt 10", "kate.sorokina@mail.ru", "+79111234567", "test1"),true);
     app.getContactHelper().submitContactCreation();
     app.getNavigationHelper().gotoHomePage();
-    int after = app.getContactHelper().getContactCount();
-    Assert.assertEquals(after,before +1);
+    List<ContactData> after = app.getContactHelper().getContactList();
+    Assert.assertEquals(after.size(),before.size() +1);
   }
 
 
