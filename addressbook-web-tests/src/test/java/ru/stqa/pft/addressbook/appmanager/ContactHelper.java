@@ -39,19 +39,21 @@ public class ContactHelper extends HelperBase {
   }
 
   public void deleteSelectedContact(){
+
     click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
-  }
+    }
 
 
 
 
   public void submitContactCreation(){
-    click(By.xpath("//div[@id='content']/form/input[21]"));
+
+    //click(By.xpath("//div[@id='content']/form/input[21]"));
+    click(By.name("submit"));
   }
 
-  public void selectContact(){
-    click(By.xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input"));
-
+  public void selectContact(int index){
+       wd.findElements(By.name("selected[]")).get(index).click();
 
   }
 
@@ -96,12 +98,13 @@ public class ContactHelper extends HelperBase {
     List<ContactData> contacts = new ArrayList<ContactData>();
     List<WebElement> elements = wd.findElements(By.name("selected[]"));
     for(WebElement we : elements){
+
       String s = we.getAttribute("title");
       s = s.substring(8,s.length()-1);
-     // String[] ss = s.split(" ");
       String firstname = s.split(" ")[0];
       String lastname = s.split(" ")[1];
-      contacts.add(new ContactData(239,firstname,  lastname, null, null, null, null));
+      int id = Integer.parseInt(we.getAttribute("id"));
+      contacts.add(new ContactData(id,firstname,  lastname, null, null, null, null));
     }
     return contacts;
   }
