@@ -27,6 +27,13 @@ public class GroupCreationTests extends TestBase {
 
     before.add(groupNew);
 
+    /*for(GroupData gd :before){
+      System.out.println("bbb"+gd.getName()+gd.getId());
+    }
+    System.out.println("gggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
+    for(GroupData gd :after){
+      System.out.println("bbb"+gd.getName()+gd.getId());
+    }*/
     Comparator<? super GroupData> ById = (g1, g2) -> Integer.compare(g1.getId(),g2.getId());
     before.sort(ById);
     after.sort(ById);
