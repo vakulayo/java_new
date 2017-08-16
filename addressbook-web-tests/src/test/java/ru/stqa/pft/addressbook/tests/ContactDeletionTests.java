@@ -32,19 +32,7 @@ public class ContactDeletionTests extends TestBase {
 
     before.remove(before.size() - 1);
 
-    for (ContactData cd : before){
-      System.out.println(cd.getFirstname());
-      System.out.println(cd.getId());
-      System.out.println(cd.getLastname());
-      System.out.println("fffffffffffffffffffffff");
-    }
 
-    for (ContactData cd : after){
-      System.out.println(cd.getFirstname());
-      System.out.println(cd.getId());
-      System.out.println(cd.getLastname());
-      System.out.println("aaaaaaaaaaaa");
-    }
     Assert.assertEquals(after, before);
 
   }
