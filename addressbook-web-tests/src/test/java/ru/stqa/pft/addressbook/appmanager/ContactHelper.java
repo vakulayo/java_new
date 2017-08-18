@@ -76,7 +76,8 @@ public class ContactHelper extends HelperBase {
 
   public void createContact(ContactData contactData) {
     gotoAddNewPage();
-    fillContactForm(new ContactData("Kate", "Sorokina", "Sirenevaya ul. 3 apt 10", "kate.sorokina@mail.ru", "+79111234567", "test1"),true);
+    fillContactForm(new ContactData().withFirstname("Kate").withLastname("Sorokina").withAddress("Sirenevaya ul. 3 apt 10")
+            .withEmail("kate.sorokina@mail.ru").withMobile("+79111234567").withGroup("test1"),true);
     submitContactCreation();
     gotoHomePage();
   }
@@ -117,7 +118,7 @@ public class ContactHelper extends HelperBase {
       String firstname = s.split(" ")[0];
       String lastname = s.split(" ")[1];
       int id = Integer.parseInt(we.getAttribute("id"));
-      contacts.add(new ContactData(id,firstname,  lastname, null, null, null, null));
+      contacts.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname));
     }
     return contacts;
   }

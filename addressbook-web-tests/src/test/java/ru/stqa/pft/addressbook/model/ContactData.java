@@ -8,28 +8,49 @@ public class ContactData {
   private  String address;
   private  String email;
   private  String mobile;
-  private int id;
   private String group;
+  private int id = Integer.MAX_VALUE;
 
-
-  public ContactData( int id, String firstname, String lastname, String address, String email, String mobile, String group) {
+  public ContactData withFirstname(String firstname) {
     this.firstname = firstname;
-    this.lastname = lastname;
-    this.address = address;
-    this.email = email;
-    this.mobile = mobile;
-    this.group = group;
-    this.id = id;
+    return this;
   }
 
-  public ContactData( String firstname, String lastname, String address, String email, String mobile, String group) {
-    this.firstname = firstname;
+  public ContactData withLastname(String lastname) {
     this.lastname = lastname;
+    return this;
+  }
+
+  public ContactData withAddress(String address) {
     this.address = address;
+    return this;
+  }
+
+  public ContactData withEmail(String email) {
     this.email = email;
+    return this;
+  }
+
+  public ContactData withMobile(String mobile) {
     this.mobile = mobile;
+    return this;
+  }
+
+  public ContactData withGroup(String group) {
     this.group = group;
-    this.id = Integer.MAX_VALUE;
+    return this;
+  }
+  public ContactData withId(int id) {
+    this.id = id;
+    return this;
+  }
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "firstname='" + firstname + '\'' +
+            ", lastname='" + lastname + '\'' +
+            '}';
   }
 
   public String getFirstname() {
@@ -58,7 +79,7 @@ public class ContactData {
 
   public int getId() {    return id;  }
 
-  public void setId(int id) {this.id = id;}
+
 
   @Override
   public boolean equals(Object o) {
@@ -78,12 +99,4 @@ public class ContactData {
     return result;
   }
 
-  @Override
-  public String toString() {
-    return "ContactData{" +
-            "firstname='" + firstname + '\'' +
-            ", lastname='" + lastname + '\'' +
-            ", id=" + id +
-            '}';
-  }
 }
