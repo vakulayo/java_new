@@ -1,5 +1,6 @@
 package ru.stqa.pft.addressbook.tests;
 
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -7,6 +8,7 @@ import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by test on 28.07.2017.
@@ -26,21 +28,23 @@ public class ContactModificationTests extends TestBase {
   public void testContactModification() {
 
 
-    List<ContactData> before = app.contact().getContactList();
-    int index = before.size() - 1;
-    ContactData newContact = new ContactData().withId(before.get(index).getId()).withFirstname("Olga")
+    Set<ContactData> before = app.contact().all();
+
+
+    ContactData modifiedContact = before.iterator().next();
+
+    ContactData newContact = new ContactData().withId(modifiedContact.getId()).withFirstname("Olga")
             .withLastname("Sorokina").withAddress("Sirenevaya ul. 3 apt 10").withAddress("kate.sorokina@mail.ru").withMobile("+79111234567");
     app.contact().modify(before, newContact);
 
-    List<ContactData> after = app.contact().getContactList();
-    before.remove(index);
+
+    Set<ContactData> after = app.contact().all();
+    before.remove(modifiedContact);
     before.add(newContact);
 
     Assert.assertEquals(after.size(),before.size());
 
-    Comparator<? super ContactData> ById = (c1,c2)->Integer.compare(c1.getId(),c2.getId());
-    before.sort(ById);
-    after.sort(ById);
+
     Assert.assertEquals(before,after);
 
 
