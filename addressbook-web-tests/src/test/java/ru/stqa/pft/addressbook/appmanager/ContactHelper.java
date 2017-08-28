@@ -9,7 +9,6 @@ import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -27,7 +26,7 @@ public class ContactHelper extends HelperBase {
     type(By.name("lastname"), contactData.getLastname());
     type(By.name("address"), contactData.getAddress());
     type(By.name("email"), contactData.getEmail());
-    type(By.name("mobile"), contactData.getMobile());
+    type(By.name("mobile"), contactData.getMobilePhone());
 
     if (creation){
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
@@ -98,7 +97,7 @@ public class ContactHelper extends HelperBase {
   public void createContact(ContactData contactData) {
     gotoAddNewPage();
     fillContactForm(new ContactData().withFirstname("Kate").withLastname("Sorokina").withAddress("Sirenevaya ul. 3 apt 10")
-            .withEmail("kate.sorokina@mail.ru").withMobile("+79111234567").withGroup("test1"),true);
+            .withEmail("kate.sorokina@mail.ru").withMobilePhone("+79111234567").withGroup("test1"),true);
     submitContactCreation();
     gotoHomePage();
   }
@@ -125,8 +124,12 @@ public class ContactHelper extends HelperBase {
 
   private void initContactModificationById(int id) {
 
-   WebElement we = wd.findElement(By.cssSelector("input[value ='" + id + "']"));
-    initContactModification((we.getLocation().getY()-256)/24);
+    WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value ='%s']",id)));
+    WebElement row = checkbox.findElement(By.xpath("./../.."));
+    List<WebElement> cells = row.findElements(By.tagName("td"));
+    cells.get(7).findElement(By.tagName("a")).click();
+   //WebElement we = wd.findElement(By.cssSelector("input[value ='" + id + "']"));
+    //initContactModification((we.getLocation().getY()-256)/24);
   }
 
   public void create(ContactData newContact) {
@@ -153,7 +156,21 @@ public class ContactHelper extends HelperBase {
 
   public Contacts all() {
    Contacts contacts = new Contacts();
-    List<WebElement> elements = wd.findElements(By.name("selected[]"));
+
+    List<WebElement> rows = wd.findElements(By.name("entry"));
+
+    for(WebElement we  : rows){
+      List<WebElement> cells = we.findElements(By.tagName("td"));
+      int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
+      String lastname = cells.get(1).getText();
+      String firstname = cells.get(2).getText();
+      String[] phones = cells.get(5).getText().split("\n");
+
+      contacts.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
+              .withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]));
+    }
+
+/*    List<WebElement> elements = wd.findElements(By.name("selected[]"));
     for(WebElement we : elements){
 
       String s = we.getAttribute("title");
@@ -162,7 +179,9 @@ public class ContactHelper extends HelperBase {
       String lastname = s.split(" ")[1];
       int id = Integer.parseInt(we.getAttribute("id"));
       contacts.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname));
-    }
+    }*/
+
+
     return contacts;
   }
 
@@ -171,5 +190,19 @@ public class ContactHelper extends HelperBase {
       List<WebElement> we = wd.findElements(By.name("selected[]"));
       return we;
 
+  }
+
+  public ContactData infoFromEditForm(ContactData contact) {
+  initContactModificationById(contact.getId());
+  String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
+    String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
+    String address = wd.findElement(By.name("address")).getAttribute("value");
+    String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
+    String home = wd.findElement(By.name("home")).getAttribute("value");
+    String work = wd.findElement(By.name("work")).getAttribute("value");
+
+
+  return new ContactData().withId(contact.getId()).
+          withFirstname(firstname).withLastname(lastname).withAddress(address).withMobilePhone(mobile).withHomePhone(home).withWorkPhone(work);
   }
 }
