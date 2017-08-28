@@ -56,6 +56,7 @@ public class ContactHelper extends HelperBase {
     selectContactById(contact.getId());
     delete();
     closeAlertWindow();
+    contactsCache = null;
     gotoHomePage();
   }
 
@@ -70,6 +71,7 @@ public class ContactHelper extends HelperBase {
     select(index);
     delete();
     closeAlertWindow();
+    contactsCache = null;
    gotoHomePage();
   }
   public void select(int index){
@@ -99,6 +101,7 @@ public class ContactHelper extends HelperBase {
     fillContactForm(new ContactData().withFirstname("Kate").withLastname("Sorokina").withAddress("Sirenevaya ul. 3 apt 10")
             .withEmail("kate.sorokina@mail.ru").withMobilePhone("+79111234567").withGroup("test1"),true);
     submitContactCreation();
+    contactsCache = null;
     gotoHomePage();
   }
 
@@ -119,6 +122,7 @@ public class ContactHelper extends HelperBase {
    initContactModificationById(newContact.getId());
     fillContactForm(newContact,false);
     submitContactModification();
+    contactsCache = null;
     gotoHomePage();
   }
 
@@ -136,6 +140,7 @@ public class ContactHelper extends HelperBase {
     gotoAddNewPage();
     fillContactForm(newContact, true);
     submitContactCreation();
+    contactsCache = null;
     gotoHomePage();
   }
 
@@ -154,8 +159,16 @@ public class ContactHelper extends HelperBase {
     return contacts;
   }
 
+
+  private Contacts contactsCache = null;
+
   public Contacts all() {
-   Contacts contacts = new Contacts();
+
+    if (contactsCache != null){
+      return new Contacts(contactsCache);
+    }
+
+   contactsCache = new Contacts();
 
     List<WebElement> rows = wd.findElements(By.name("entry"));
 
@@ -166,9 +179,10 @@ public class ContactHelper extends HelperBase {
       String firstname = cells.get(2).getText();
       String[] phones = cells.get(5).getText().split("\n");
 
-      contacts.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
-              .withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]));
+      contactsCache.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname));
+        //      .withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]));
     }
+    return new Contacts(contactsCache);
 
 /*    List<WebElement> elements = wd.findElements(By.name("selected[]"));
     for(WebElement we : elements){
@@ -182,7 +196,7 @@ public class ContactHelper extends HelperBase {
     }*/
 
 
-    return contacts;
+
   }
 
 
