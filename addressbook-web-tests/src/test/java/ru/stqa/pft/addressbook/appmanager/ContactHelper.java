@@ -179,8 +179,9 @@ public class ContactHelper extends HelperBase {
       String firstname = cells.get(2).getText();
       String allPhones = cells.get(5).getText();
       String allEmails = cells.get(4).getText();
+      String address = cells.get(3).getText();
       contactsCache.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
-             .withAllPhones(allPhones).withAllEmails(allEmails));
+             .withAllPhones(allPhones).withAllEmails(allEmails).withAddress(address));
     }
     return new Contacts(contactsCache);
 
