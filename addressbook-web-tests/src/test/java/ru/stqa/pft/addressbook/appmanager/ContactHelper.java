@@ -8,14 +8,14 @@ import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by test on 28.07.2017.
  */
 public class ContactHelper extends HelperBase {
+
+  private Contacts contactsCache = null;
 
   public ContactHelper(WebDriver wd) {
     super(wd);
@@ -43,9 +43,6 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
     }
 
-
-
-
   public void submitContactCreation(){
 
 
@@ -64,9 +61,6 @@ public class ContactHelper extends HelperBase {
     wd.findElement(By.cssSelector("input[value ='" + id + "']")).click();
   }
 
-
-
-
   public void delete(int index) {
     select(index);
     delete();
@@ -74,6 +68,7 @@ public class ContactHelper extends HelperBase {
     contactsCache = null;
    gotoHomePage();
   }
+
   public void select(int index){
        wd.findElements(By.name("selected[]")).get(index).click();
 
@@ -82,7 +77,6 @@ public class ContactHelper extends HelperBase {
   public void closeAlertWindow(){
     wd.switchTo().alert().accept();
   }
-
 
   public void initContactModification(int index){
     click(By.xpath("//table[@id='maintable']/tbody/tr["+(index+1)+"]/td[8]/a/img"));
@@ -127,7 +121,7 @@ public class ContactHelper extends HelperBase {
   }
 
   private void initContactModificationById(int id) {
-
+    gotoHomePage();
     WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value ='%s']",id)));
     WebElement row = checkbox.findElement(By.xpath("./../.."));
     List<WebElement> cells = row.findElements(By.tagName("td"));
@@ -158,9 +152,6 @@ public class ContactHelper extends HelperBase {
     }
     return contacts;
   }
-
-
-  private Contacts contactsCache = null;
 
   public Contacts all() {
 
@@ -223,5 +214,156 @@ public class ContactHelper extends HelperBase {
           withFirstname(firstname).withLastname(lastname).withAddress(address)
           .withMobilePhone(mobile).withHomePhone(home).withWorkPhone(work)
           .withEmail(email).withEmail2(email2).withEmail3(email3);
+  }
+
+  public String infoFromDetailsForm(ContactData contact) {
+    gotoHomePage();
+    gotoDetailsPage(contact.getId());
+    WebElement content = wd.findElement(By.id("content"));
+    return content.getText();
+  }
+
+  private void gotoDetailsPage(int id) {
+    gotoHomePage();
+    WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value ='%s']",id)));
+    WebElement row = checkbox.findElement(By.xpath("./../.."));
+    List<WebElement> cells = row.findElements(By.tagName("td"));
+    cells.get(6).findElement(By.tagName("a")).click();
+  }
+
+  public String allInfoFromEditForm(ContactData contact) {
+    initContactModificationById(contact.getId());
+    String result ="";
+    if (!wd.findElement(By.name("firstname")).getAttribute("value").equals("")){
+      result = result + wd.findElement(By.name("firstname")).getAttribute("value").trim();
+    }
+    if (!wd.findElement(By.name("middlename")).getAttribute("value").equals("")){
+      result = result +" "+ wd.findElement(By.name("middlename")).getAttribute("value").trim();
+    }
+    if (!wd.findElement(By.name("lastname")).getAttribute("value").equals("")){
+      result = result +" "+ wd.findElement(By.name("lastname")).getAttribute("value").trim()+"\n";
+    }
+    if (!wd.findElement(By.name("nickname")).getAttribute("value").equals("")){
+      result = result + wd.findElement(By.name("nickname")).getAttribute("value").trim()+"\n";
+    }
+    if (!wd.findElement(By.name("title")).getAttribute("value").equals("")){
+      result = result + wd.findElement(By.name("title")).getAttribute("value").trim()+"\n";
+    }
+    if (!wd.findElement(By.name("company")).getAttribute("value").equals("")){
+      result = result + wd.findElement(By.name("company")).getAttribute("value").trim()+"\n";
+    }
+    if (!wd.findElement(By.name("address")).getAttribute("value").equals("")){
+      result = result + wd.findElement(By.name("address")).getAttribute("value").trim()+"\n";
+    }
+    if (!wd.findElement(By.name("home")).getAttribute("value").equals("")){
+      result = result +"H: "+ wd.findElement(By.name("home")).getAttribute("value").trim()+"\n";
+    }
+    if (!wd.findElement(By.name("mobile")).getAttribute("value").equals("")){
+      result = result +"M: "+ wd.findElement(By.name("mobile")).getAttribute("value").trim()+"\n";
+    }
+    if (!wd.findElement(By.name("work")).getAttribute("value").equals("")){
+      result = result +"W: "+ wd.findElement(By.name("work")).getAttribute("value").trim()+"\n";
+    }
+    if (!wd.findElement(By.name("fax")).getAttribute("value").equals("")){
+      result = result +"F: "+ wd.findElement(By.name("fax")).getAttribute("value").trim()+"\n";
+    }
+    if (!wd.findElement(By.name("email")).getAttribute("value").equals("")){
+      result = result + addPortal(wd.findElement(By.name("email")).getAttribute("value").trim())+"\n";
+    }
+    if (!wd.findElement(By.name("email2")).getAttribute("value").equals("")){
+      result = result + addPortal(wd.findElement(By.name("email2")).getAttribute("value").trim())+"\n";
+    }
+    if (!wd.findElement(By.name("email3")).getAttribute("value").equals("")){
+      result = result + addPortal(wd.findElement(By.name("email3")).getAttribute("value").trim())+"\n";
+    }
+    if (!wd.findElement(By.name("homepage")).getAttribute("value").equals("")){
+      result = result +"Homepage:\n"+ wd.findElement(By.name("homepage")).getAttribute("value").trim()+"\n";
+    }
+
+
+    if (!wd.findElement(By.name("bday")).getAttribute("value").equals(0)){
+      String text = wd.findElement(By.cssSelector("select[name=bday]>option[selected=selected]")).getText()+ " "
+              + wd.findElement(By.cssSelector("select[name=bmonth]>option[selected=selected]")).getText() + " "
+              + wd.findElement(By.name("byear")).getAttribute("value");
+
+      result = result + "Birthday "+ addAge(text)+"\n";
+    }
+/*
+    if (!wd.findElement(By.name("bmonth")).getAttribute("value").equals("-")){
+      result = result + " " + wd.findElement(By.cssSelector("select[name=bmonth]>option[selected=selected]")).getText();
+    }
+    if (!wd.findElement(By.name("byear")).getAttribute("value").equals("")){
+      result = result + " " + addAge(wd.findElement(By.name("byear")).getAttribute("value"))+"\n";
+    }*/
+
+
+
+    if (!wd.findElement(By.name("aday")).getAttribute("value").equals(0)){
+
+
+      String text = wd.findElement(By.cssSelector("select[name=aday]>option[selected=selected]")).getText()+ " "
+              + wd.findElement(By.cssSelector("select[name=amonth]>option[selected=selected]")).getText() + " "
+              + wd.findElement(By.name("ayear")).getAttribute("value");
+
+      result = result + "Anniversary "+ addAge(text)+"\n";
+    }
+
+
+    /*if (!wd.findElement(By.name("amonth")).getAttribute("value").equals("-")){
+      result = result + " " + wd.findElement(By.cssSelector("select[name=amonth]>option[selected=selected]")).getText();
+    }
+    if (!wd.findElement(By.name("ayear")).getAttribute("value").equals("")){
+      result = result + " " + addAge(wd.findElement(By.name("ayear")).getAttribute("value"))+"\n";
+    }*/
+
+
+    if (!wd.findElement(By.name("address2")).getAttribute("value").equals("")){
+      result = result + wd.findElement(By.name("address2")).getAttribute("value").trim()+"\n";
+    }
+    if (!wd.findElement(By.name("phone2")).getAttribute("value").equals("")){
+      result = result+"P: " + wd.findElement(By.name("phone2")).getAttribute("value").trim()+"\n";
+    }
+    if (!wd.findElement(By.name("notes")).getAttribute("value").equals("")){
+      result = result + wd.findElement(By.name("notes")).getAttribute("value").trim()+"\n";
+    }
+
+    return result.substring(0,result.length()-1);
+  }
+
+  private String addAge(String text) {
+    HashMap<String,Integer> months = new HashMap<String,Integer>();
+    months.put("January",1);
+    months.put("February",2);
+    months.put("March",3);
+    months.put("April",4);
+    months.put("May",5);
+    months.put("June",6);
+    months.put("July",7);
+    months.put("August",8);
+    months.put("September",9);
+    months.put("October",10);
+    months.put("November",11);
+    months.put("December",12);
+    String[] st = text.split(" ");
+    int year = Integer.parseInt(st[2]);
+    int month = months.get(st[1]);
+    int day = Integer.parseInt(st[0]);
+
+    Calendar currentDate = new GregorianCalendar();
+    Calendar birthday = new GregorianCalendar(year,month,day);
+
+    int diff;
+    if (currentDate.get(Calendar.DAY_OF_YEAR) >= birthday.get(Calendar.DAY_OF_YEAR)){
+      diff = currentDate.get(Calendar.YEAR)-birthday.get(Calendar.YEAR);
+    } else {
+      diff = currentDate.get(Calendar.YEAR)-birthday.get(Calendar.YEAR)-1;
+    }
+
+    return day+"."+" "+st[1]+" "+year+" ("+diff+")";
+  }
+
+  private String addPortal(String email) {
+    String[] s = email.split("@");
+    return email+" (www."+s[s.length-1]+")";
   }
 }
