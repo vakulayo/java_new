@@ -32,7 +32,7 @@ public class DetailsFormTests extends TestBase {
 
 
     String contactInfoFromEditForm = app.contact().allInfoFromEditForm(contact);
-    
+
 
    assertThat(infoFromDetailsForm, equalTo(contactInfoFromEditForm));
   }
