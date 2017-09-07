@@ -1,5 +1,9 @@
 package ru.stqa.pft.addressbook.generators;
 
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameter;
+import com.beust.jcommander.ParameterException;
+import org.junit.runners.Parameterized;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.io.File;
@@ -14,23 +18,34 @@ import java.util.List;
  */
 public class ContactDataGenerator {
 
+  @Parameter(names = "-c", description = "Contact number")
+  public int count;
+
+  @Parameter(names = "-f", description = "Path to file")
+  public String file;
+
   public static void main(String[] args) throws IOException {
-
-    int count = Integer.parseInt(args[0]);
-    File file = new File(args[1]);
-
-
-    System.out.println("ddddddddddd"+count);
-    System.out.println("fffffffffff"+file.getAbsolutePath());
-    List<ContactData> contacts = generateContacts(count);
-    save(contacts,file);
+    ContactDataGenerator generator = new ContactDataGenerator();
+    JCommander jCommander = new JCommander(generator);
+    try {
+      jCommander.parse(args);
+    } catch (ParameterException ex){
+      jCommander.usage();
+      return;
+    }
+    generator.run();
 
 
   }
 
-  private static void save(List<ContactData> contacts, File file) throws IOException {
-    System.out.println(file.getAbsolutePath());
-    System.out.println(new File(".").getAbsolutePath());
+  private  void run() throws IOException {
+    List<ContactData> contacts = generateContacts(count);
+    save(contacts,new File(file));
+  }
+
+  private  void save(List<ContactData> contacts, File file) throws IOException {
+
+
     Writer writer = new FileWriter(file);
     for(ContactData cd: contacts){
 
@@ -41,7 +56,7 @@ public class ContactDataGenerator {
 
   }
 
-  private static List<ContactData> generateContacts(int count) {
+  private  List<ContactData> generateContacts(int count) {
     List<ContactData> contacts = new ArrayList<ContactData>();
     for(int i =0;i<count;i++){
       ContactData cd = new ContactData().withFirstname(String.format("Firstname%s",i))
