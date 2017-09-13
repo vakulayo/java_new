@@ -29,16 +29,11 @@ public class ContactData {
   @Expose
   private String allEmails;
 
-
   @Expose
   private String group;
 
   private int id = Integer.MAX_VALUE;
-
-
-
-
-
+  @Expose
   private File photo;
 
 

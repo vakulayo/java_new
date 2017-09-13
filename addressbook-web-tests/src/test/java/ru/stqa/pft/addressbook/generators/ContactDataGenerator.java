@@ -71,8 +71,8 @@ public class ContactDataGenerator {
     Writer writer = new FileWriter(file);
     for(ContactData cd: contacts){
 
-      writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s\n", cd.getFirstname(), cd.getLastname(), cd.getAddress(), cd.getEmail(),
-              cd.getEmail2(), cd.getEmail3(), cd. getMobilePhone(), cd.getHomePhone(), cd.getWorkPhone() ));
+      writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s\n", cd.getFirstname(), cd.getLastname(), cd.getAddress(), cd.getEmail(),
+              cd.getEmail2(), cd.getEmail3(), cd. getMobilePhone(), cd.getHomePhone(), cd.getWorkPhone(), cd.getPhoto() ));
     }
     writer.close();
 
@@ -85,7 +85,7 @@ public class ContactDataGenerator {
               .withLastname(String.format("Lastname%s",i)).withAddress(String.format("Sirenevaya ul dom %s apt %s",i,i))
               .withEmail(String.format("lastname_firstname_%s@mail.ru",i)).withEmail2(String.format("lastname_firstname_%s@google.ru",i))
               .withEmail3(String.format("lastname_firstname_%s@yandex.ru",i)).withMobilePhone(String.format("+7911123456%s",i))
-              .withHomePhone(String.format("+7921123456%s",i)).withWorkPhone(String.format("+7905123456%s",i));
+              .withHomePhone(String.format("+7921123456%s",i)).withWorkPhone(String.format("+7905123456%s",i)).withGroup("test1");
       contacts.add(cd);
     }
     return contacts;
