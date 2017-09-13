@@ -34,53 +34,5 @@
     "email2": "lastname_firstname_2@google.ru",
     "email3": "lastname_firstname_2@yandex.ru",
     "group": "test1"
-  },
-  {
-    "firstname": "Firstname3",
-    "lastname": "Lastname3",
-    "address": "Sirenevaya ul dom 3 apt 3",
-    "mobilePhone": "+79111234563",
-    "workPhone": "+79051234563",
-    "homePhone": "+79211234563",
-    "email": "lastname_firstname_3@mail.ru",
-    "email2": "lastname_firstname_3@google.ru",
-    "email3": "lastname_firstname_3@yandex.ru",
-    "group": "test1"
-  },
-  {
-    "firstname": "Firstname4",
-    "lastname": "Lastname4",
-    "address": "Sirenevaya ul dom 4 apt 4",
-    "mobilePhone": "+79111234564",
-    "workPhone": "+79051234564",
-    "homePhone": "+79211234564",
-    "email": "lastname_firstname_4@mail.ru",
-    "email2": "lastname_firstname_4@google.ru",
-    "email3": "lastname_firstname_4@yandex.ru",
-    "group": "test1"
-  },
-  {
-    "firstname": "Firstname5",
-    "lastname": "Lastname5",
-    "address": "Sirenevaya ul dom 5 apt 5",
-    "mobilePhone": "+79111234565",
-    "workPhone": "+79051234565",
-    "homePhone": "+79211234565",
-    "email": "lastname_firstname_5@mail.ru",
-    "email2": "lastname_firstname_5@google.ru",
-    "email3": "lastname_firstname_5@yandex.ru",
-    "group": "test1"
-  },
-  {
-    "firstname": "Firstname6",
-    "lastname": "Lastname6",
-    "address": "Sirenevaya ul dom 6 apt 6",
-    "mobilePhone": "+79111234566",
-    "workPhone": "+79051234566",
-    "homePhone": "+79211234566",
-    "email": "lastname_firstname_6@mail.ru",
-    "email2": "lastname_firstname_6@google.ru",
-    "email3": "lastname_firstname_6@yandex.ru",
-    "group": "test1"
   }
 ]
