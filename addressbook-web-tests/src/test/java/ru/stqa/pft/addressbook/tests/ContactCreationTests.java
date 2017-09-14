@@ -21,7 +21,7 @@ public class ContactCreationTests extends TestBase {
 
   @DataProvider
   public Iterator<Object[]> nextContactFromJsonFile() throws IOException{
-    BufferedReader br = new BufferedReader(new FileReader(new File("src/test/resources/contacts.json")));
+    try (BufferedReader br = new BufferedReader(new FileReader(new File("src/test/resources/contacts.json")))){
     String json = "";
     String s = br.readLine();
 
@@ -32,6 +32,7 @@ public class ContactCreationTests extends TestBase {
     Gson gson = new Gson();
     List<ContactData> contacts = gson.fromJson(json, new TypeToken<List<ContactData>>() {}.getType());
     return contacts.stream().map((c)-> new Object[] {c}).collect(Collectors.toList()).iterator();
+    }
   }
 
   @Test(dataProvider = "nextContactFromJsonFile")

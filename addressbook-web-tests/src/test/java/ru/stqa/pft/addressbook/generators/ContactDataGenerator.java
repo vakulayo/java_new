@@ -60,21 +60,23 @@ public class ContactDataGenerator {
   private void saveAsJson(List<ContactData> contacts, File file) throws IOException {
     Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
     String json = gson.toJson(contacts);
-    Writer writer = new FileWriter(file);
+
+    try (Writer writer = new FileWriter(file)){
     writer.write(json);
-    writer.close();
+    }
+
   }
 
   private  void saveAsCsv(List<ContactData> contacts, File file) throws IOException {
 
 
-    Writer writer = new FileWriter(file);
-    for(ContactData cd: contacts){
+   try(Writer writer = new FileWriter(file)){
+      for (ContactData cd : contacts) {
 
-      writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s\n", cd.getFirstname(), cd.getLastname(), cd.getAddress(), cd.getEmail(),
-              cd.getEmail2(), cd.getEmail3(), cd. getMobilePhone(), cd.getHomePhone(), cd.getWorkPhone(), cd.getPhoto() ));
+        writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s\n", cd.getFirstname(), cd.getLastname(), cd.getAddress(), cd.getEmail(),
+                cd.getEmail2(), cd.getEmail3(), cd.getMobilePhone(), cd.getHomePhone(), cd.getWorkPhone(), cd.getPhoto()));
+      }
     }
-    writer.close();
 
   }
 
