@@ -4,7 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import sun.plugin2.util.BrowserType;
+import org.openqa.selenium.remote.BrowserType;
+
 
 import java.util.concurrent.TimeUnit;
 
@@ -18,9 +19,9 @@ public class ApplicationManager {
   private  GroupHelper groupHelper;
   private SessionHelper sessionHelper;
   private ContactHelper contactHelper;
-  private int browser;
+  private String browser;
 
-  public ApplicationManager(int browser) {
+  public ApplicationManager(String browser) {
 
     this.browser = browser;
   }
@@ -30,13 +31,12 @@ public class ApplicationManager {
 
 
 
-
-    if (browser == BrowserType.MOZILLA) {
+    if (browser == BrowserType.FIREFOX) {
       wd = new FirefoxDriver();
       System.setProperty("webdriver.gecko.driver", "c:\\SeleniumGecko\\geckodriver-v0.17.0-win32\\geckodriver.exe");
     }
-    else if (browser == BrowserType.INTERNET_EXPLORER) {wd = new InternetExplorerDriver();}
-    else if (browser == BrowserType.DEFAULT) {wd = new ChromeDriver();}
+    else if (browser == BrowserType.IE) {wd = new InternetExplorerDriver();}
+    else if (browser == BrowserType.CHROME) {wd = new ChromeDriver();}
 
     wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 
