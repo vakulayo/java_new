@@ -31,12 +31,13 @@ public class ApplicationManager {
 
 
 
-    if (browser == BrowserType.FIREFOX) {
-      wd = new FirefoxDriver();
+    if (browser.equals(BrowserType.FIREFOX)) {
       System.setProperty("webdriver.gecko.driver", "c:\\SeleniumGecko\\geckodriver-v0.17.0-win32\\geckodriver.exe");
+      wd = new FirefoxDriver();
+
     }
-    else if (browser == BrowserType.IE) {wd = new InternetExplorerDriver();}
-    else if (browser == BrowserType.CHROME) {wd = new ChromeDriver();}
+    else if (browser.equals(BrowserType.IE)) {wd = new InternetExplorerDriver();}
+    else if (browser.equals(BrowserType.CHROME)) {wd = new ChromeDriver();}
 
     wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 
