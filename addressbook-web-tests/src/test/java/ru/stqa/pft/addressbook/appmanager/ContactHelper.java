@@ -22,9 +22,27 @@ public class ContactHelper extends HelperBase {
   }
 
   public void fillContactForm(ContactData contactData, boolean creation) {
+
+
+    /*if (creation){
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+    }
+    else {
+      Assert.assertFalse(isElementPresent(By.name("new_group")));
+    }*/
+
+   /* if (contactData.getPhoto()!=null) {
+      attach(By.name("photo"), contactData.getPhoto());
+    }*/
+
+
+
+
+
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
-    type(By.name("address"), contactData.getAddress());
+
+   type(By.name("address"), contactData.getAddress());
     type(By.name("email"), contactData.getEmail());
     if (contactData.getEmail3()!=null){
       type(By.name("email3"), contactData.getEmail3());
@@ -42,16 +60,9 @@ public class ContactHelper extends HelperBase {
       type(By.name("home"), contactData.getHomePhone());
     }
 
-    if (contactData.getPhoto()!=null) {
-      attach(By.name("photo"), contactData.getPhoto());
-    }
 
-    if (creation){
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
-    }
-    else {
-      Assert.assertFalse(isElementPresent(By.name("new_group")));
-    }
+
+
 
 
   }
@@ -126,6 +137,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public int count() {
+    gotoHomePage();
     return wd.findElements(By.name("selected[]")).size();
 
   }
