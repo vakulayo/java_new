@@ -9,7 +9,8 @@
     "email": "lastname_firstname_0@mail.ru",
     "email2": "lastname_firstname_0@google.ru",
     "email3": "lastname_firstname_0@yandex.ru",
-    "group": "test1"
+    "group": "test1",
+    "photo": "\"src\\test\\resources\\Koala.jpg\""
   },
   {
     "firstname": "Firstname1",
@@ -21,18 +22,7 @@
     "email": "lastname_firstname_1@mail.ru",
     "email2": "lastname_firstname_1@google.ru",
     "email3": "lastname_firstname_1@yandex.ru",
-    "group": "test1"
-  },
-  {
-    "firstname": "Firstname2",
-    "lastname": "Lastname2",
-    "address": "Sirenevaya ul dom 2 apt 2",
-    "mobilePhone": "+79111234562",
-    "workPhone": "+79051234562",
-    "homePhone": "+79211234562",
-    "email": "lastname_firstname_2@mail.ru",
-    "email2": "lastname_firstname_2@google.ru",
-    "email3": "lastname_firstname_2@yandex.ru",
-    "group": "test1"
+    "group": "test1",
+    "photo": "\"src\\test\\resources\\Koala.jpg\""
   }
 ]

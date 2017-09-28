@@ -39,7 +39,7 @@ public class ContactCreationTests extends TestBase {
   public void testContactCreation(ContactData newContact) {
     app.goTo().homePage();
     Contacts before = app.contact().all();
-    File photo = new File("src/test/resources/Koala.jpg");
+   // File photo = new File("src/test/resources/Koala.jpg");
 
 
     app.contact().create(newContact);
