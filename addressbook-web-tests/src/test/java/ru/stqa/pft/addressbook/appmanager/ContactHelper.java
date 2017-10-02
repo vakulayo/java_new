@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.*;
 
@@ -24,12 +25,15 @@ public class ContactHelper extends HelperBase {
   public void fillContactForm(ContactData contactData, boolean creation) {
 
 
-    /*if (creation){
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+    if (creation){
+      if(contactData.getGroups().size() > 0) {
+        Assert.assertTrue(contactData.getGroups().size() == 1);
+        new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName());
+      }
     }
     else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
-    }*/
+    }
 
    /* if (contactData.getPhoto()!=null) {
       attach(By.name("photo"), contactData.getPhoto());
@@ -122,7 +126,7 @@ public class ContactHelper extends HelperBase {
   public void createContact(ContactData contactData) {
     gotoAddNewPage();
     fillContactForm(new ContactData().withFirstname("Kate").withLastname("Sorokina").withAddress("Sirenevaya ul. 3 apt 10")
-            .withEmail("kate.sorokina@mail.ru").withMobilePhone("+79111234567").withGroup("test1"),true);
+            .withEmail("kate.sorokina@mail.ru").withMobilePhone("+79111234567").inGroups(new GroupData().withName("test1")),true);
     submitContactCreation();
     contactsCache = null;
     gotoHomePage();
