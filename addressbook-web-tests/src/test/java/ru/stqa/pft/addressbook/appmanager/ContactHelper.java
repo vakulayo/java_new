@@ -400,4 +400,15 @@ public class ContactHelper extends HelperBase {
     String[] s = email.split("@");
     return email+" (www."+s[s.length-1]+")";
   }
+
+  public void addToGroup(ContactData addingContact, GroupData mainGroup) {
+    gotoHomePage();
+    selectContactById(addingContact.getId());
+    selectGroup(mainGroup);
+    click(By.name("add"));
+  }
+
+  private void selectGroup(GroupData mainGroup) {
+    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(mainGroup.getName());
+      }
 }
