@@ -411,4 +411,15 @@ public class ContactHelper extends HelperBase {
   private void selectGroup(GroupData mainGroup) {
     new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(mainGroup.getName());
       }
+
+  public void removeFromGroup(ContactData removedContact, GroupData mainGroup) {
+    gotoHomePage();
+    selectGroupFilter(mainGroup);
+    selectContactById(removedContact.getId());
+    click(By.name("remove"));
+  }
+
+  private void selectGroupFilter(GroupData mainGroup) {
+    new Select(wd.findElement(By.name("group"))).selectByVisibleText(mainGroup.getName());
+  }
 }

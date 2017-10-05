@@ -8,6 +8,7 @@ import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -54,33 +55,37 @@ public class ContactAddingToGroupTests extends TestBase {
 
     Contacts contacts = app.db().contacts();
     Groups groups = app.db().groups();
-    ContactData addingContact = contacts.iterator().next();
+    Iterator iterator =  contacts.iterator();
+    ContactData addedContact = (ContactData) iterator.next();
+
 
     //chose any contact with possibility to add group
-    while (addingContact.getGroups().size() == groups.size()){
-      addingContact = contacts.iterator().next();
+    while (addedContact.getGroups().size() == groups.size()){
+      addedContact = (ContactData) iterator.next();
     }
 
     //chose free group for this contact
-    groups.removeAll(addingContact.getGroups());
+    groups.removeAll(addedContact.getGroups());
     GroupData mainGroup = groups.iterator().next();
 
 
 
-    app.contact().addToGroup(addingContact,mainGroup);
+    app.contact().addToGroup(addedContact,mainGroup);
 
     //for checking db
     Contacts afterContacts = app.db().contacts();
-    ContactData afterAddingContact = afterContacts.iterator().next();
+    Iterator iter = afterContacts.iterator();
+    ContactData afterAddingContact = (ContactData) iter.next();
 
     //find the exact contact (using Id)
-    while(afterAddingContact.getId() != addingContact.getId()){
-      afterAddingContact = contacts.iterator().next();
+
+    while(afterAddingContact.getId() != addedContact.getId()){
+      afterAddingContact = (ContactData) iter.next();
     }
 
     //compare groups Set before and after test
     Groups afterGroups = afterAddingContact.getGroups();
-    Groups beforeGroups = addingContact.getGroups();
+    Groups beforeGroups = addedContact.getGroups();
     beforeGroups.add(mainGroup);
 
     Assert.assertEquals(afterGroups,beforeGroups);
