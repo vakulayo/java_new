@@ -6,6 +6,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
 
+import ru.stqa.pft.mantis.appmanager.HttpSession;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -58,4 +59,11 @@ public class ApplicationManager {
   }
 
 
+  public HttpSession newSession(){
+    return new HttpSession(this);
+  }
+
+  public String getProperty(String key){
+    return properties.getProperty(key);
+  }
 }
