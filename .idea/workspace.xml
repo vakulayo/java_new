@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97909f65-ccce-43be-acac-bd3b228f0dea" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_net_commons_net_3_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/FtpHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mantis-tests/src/test/resources/config_inc.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mantis-tests/build/resources/test/local.properties" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addressbook-web-tests/build/classes/java/test/ru/stqa/pft/addressbook/tests/TestBase.class" afterPath="$PROJECT_DIR$/addressbook-web-tests/build/classes/java/test/ru/stqa/pft/addressbook/tests/TestBase.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mantis-tests/build/classes/java/test/ru/stqa/pft/mantis/appmanager/ApplicationManager.class" afterPath="$PROJECT_DIR$/mantis-tests/build/classes/java/test/ru/stqa/pft/mantis/appmanager/ApplicationManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/mantis-tests_main.iml" afterPath="$PROJECT_DIR$/.idea/modules/mantis-tests_main.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/mantis-tests_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/mantis-tests_test.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/TestBase.java" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/TestBase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mantis-tests/build.gradle" afterPath="$PROJECT_DIR$/mantis-tests/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/ApplicationManager.java" afterPath="$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/ApplicationManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/tests/TestBase.java" afterPath="$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/tests/TestBase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mantis-tests/src/test/resources/local.properties" afterPath="$PROJECT_DIR$/mantis-tests/src/test/resources/local.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mantis-tests/src/test/resources/config_inc.php" afterPath="$PROJECT_DIR$/mantis-tests/src/test/resources/config_inc.php" />
     </list>
     <ignored path="$PROJECT_DIR$/sandbox/.gradle/" />
     <ignored path="$PROJECT_DIR$/sandbox/build/" />
@@ -88,14 +75,14 @@
       <file leaf-file-name="FtpHelper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/FtpHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="30">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegistrationTests.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RegistrationTests.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/tests/RegistrationTests.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
@@ -107,11 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestBase.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TestBase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/tests/TestBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="268">
+              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -121,7 +108,7 @@
         <entry file="file://$PROJECT_DIR$/mantis-tests/src/test/resources/config_inc.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1123,9 +1110,9 @@
         <option value="$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/ApplicationManager.java" />
         <option value="$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/FtpHelper.java" />
         <option value="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/TestBase.java" />
-        <option value="$PROJECT_DIR$/mantis-tests/src/test/resources/config_inc.php" />
         <option value="$PROJECT_DIR$/mantis-tests/src/test/resources/local.properties" />
         <option value="$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/tests/TestBase.java" />
+        <option value="$PROJECT_DIR$/mantis-tests/src/test/resources/config_inc.php" />
       </list>
     </option>
   </component>
@@ -1954,18 +1941,6 @@
     <history-entry file="ContactCreationTests - 2017.11.13 at 16h 52m 08s.xml">
       <configuration name="ContactCreationTests" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="GroupCreationTests - 2017.11.09 at 19h 08m 52s.xml">
-      <configuration name="GroupCreationTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="LoginTests - 2017.10.23 at 17h 59m 40s.xml">
-      <configuration name="LoginTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="LoginTests - 2017.10.23 at 18h 00m 04s.xml">
-      <configuration name="LoginTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="LoginTests - 2017.10.23 at 18h 41m 17s.xml">
-      <configuration name="LoginTests" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="LoginTests - 2017.11.09 at 20h 08m 36s.xml">
       <configuration name="LoginTests" configurationId="TestNG" />
     </history-entry>
@@ -1979,6 +1954,18 @@
       <configuration name="RegistrationTests" configurationId="TestNG" />
     </history-entry>
     <history-entry file="RegistrationTests - 2017.11.13 at 17h 38m 37s.xml">
+      <configuration name="RegistrationTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="RegistrationTests - 2017.11.13 at 19h 53m 19s.xml">
+      <configuration name="RegistrationTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="RegistrationTests - 2017.11.13 at 19h 54m 56s.xml">
+      <configuration name="RegistrationTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="RegistrationTests - 2017.11.13 at 19h 57m 05s.xml">
+      <configuration name="RegistrationTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="RegistrationTests - 2017.11.13 at 19h 58m 45s.xml">
       <configuration name="RegistrationTests" configurationId="TestNG" />
     </history-entry>
   </component>
@@ -2007,7 +1994,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3360324" sideWeight="0.56875" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3360324" sideWeight="0.56875" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2418,24 +2405,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/tests/RegistrationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="e#204#205#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mantis-tests/src/test/resources/config_inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.11/77da7afb24d57b640d9803593a6222c7de12dd4e/testng-6.11-sources.jar!/org/testng/internal/MethodInvocationHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="430">
@@ -2444,19 +2413,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/FtpHelper.java">
+    <entry file="file://$PROJECT_DIR$/mantis-tests/src/test/resources/config_inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/tests/TestBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state relative-caret-position="268">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/FtpHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/tests/RegistrationTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#204#205#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
