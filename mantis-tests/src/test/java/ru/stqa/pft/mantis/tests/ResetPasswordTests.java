@@ -13,7 +13,6 @@ import ru.stqa.pft.mantis.model.MailMessage;
 import ru.stqa.pft.mantis.model.User;
 
 import javax.mail.MessagingException;
-import javax.swing.*;
 import java.io.IOException;
 import java.util.List;
 
@@ -22,22 +21,32 @@ import java.util.List;
  */
 public class ResetPasswordTests extends TestBase {
   @BeforeMethod
-  public void startMailServer(){
+  public void startMailServer() {
     app.mail().start();
   }
 
   @Test
   public static void testResetPassword() throws IOException, MessagingException {
-    String username = "administrator";
-    String password = "root";
-      app.user().login(username,password);
+    String adminName = "administrator";
+    String adminPassword = "root";
+    app.user().login(adminName, adminPassword, "http://localhost/mantisbt-2.6.0/account_page.php");
 
 
-      User user = findAnyValidUser();
-    System.out.println(user.getUsername()+"   "+user.getEmail()+" nnnnnnnnnnnn"+user.getId());
+    User user = findAnyValidUser();
+
+    String username = user.getUsername();
+
+    long now = System.currentTimeMillis();
+    String newPassword = String.format("Password%s", now);
+
+
     app.user().resetPassword(user);
-    List<MailMessage> mailMessages = app.mail().waitForMAil(2, 10000);
+    List<MailMessage> mailMessages = app.mail().waitForMAil(1, 10000);
     String confirmationLink = findConfirmationLink(mailMessages, user.getEmail());
+    app.user().changePassword(confirmationLink, user, newPassword);
+
+    app.user().login(username, newPassword, "http://localhost/mantisbt-2.6.0/my_view_page.php");
+
   }
 
   private static User findAnyValidUser() {
@@ -58,15 +67,15 @@ public class ResetPasswordTests extends TestBase {
 
   }
 
-  private static String  findConfirmationLink(List<MailMessage> mailMessages, String email) {
-    MailMessage mailMessage = mailMessages.stream().filter((m) ->m.to.equals(email)).findFirst().get();
+  private static String findConfirmationLink(List<MailMessage> mailMessages, String email) {
+    MailMessage mailMessage = mailMessages.stream().filter((m) -> m.to.equals(email)).findFirst().get();
     VerbalExpression regex = VerbalExpression.regex().find("http://").nonSpace().oneOrMore().build();
     return regex.getText(mailMessage.text);
   }
 
   @AfterMethod(alwaysRun = true)
 
-  public void stopMailServer(){
+  public void stopMailServer() {
     app.mail().stop();
   }
 }
