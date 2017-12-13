@@ -51,5 +51,22 @@ public class TestBase {
   }
 
 
+  public void skipIfNotFixedBugify(int issueId) throws IOException {
+    if (isIssueOpenBugify(issueId)) {
+      throw new SkipException("Ignored because of issue " + issueId);
+    }
+  }
+
+  public boolean isIssueOpenBugify(int issueId) throws IOException {
+     String status = app.rest().statusIssue(issueId);
+     if (status.equals("Open") || status.equals("In Progress") ){
+       return true;
+     }
+       else{
+       return false;
+    }
+
+  }
+
 
 }
