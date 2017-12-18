@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="97909f65-ccce-43be-acac-bd3b228f0dea" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/pft/sandbox/MyFirstProgram.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/sandbox/src/main/test/ru/stqa/pft/sandbox/DistanceTest.java" afterPath="$PROJECT_DIR$/sandbox/src/main/java/test/ru/stqa/pft/sandbox/DistanceTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/sandbox/src/main/test/ru/stqa/pft/sandbox/EquationTest.java" afterPath="$PROJECT_DIR$/sandbox/src/main/java/test/ru/stqa/pft/sandbox/EquationTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/sandbox/src/main/test/ru/stqa/pft/sandbox/PrimeTests.java" afterPath="$PROJECT_DIR$/sandbox/src/main/java/test/ru/stqa/pft/sandbox/PrimeTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/sandbox/src/main/test/ru/stqa/pft/sandbox/SquareTests.java" afterPath="$PROJECT_DIR$/sandbox/src/main/java/test/ru/stqa/pft/sandbox/SquareTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/sandbox/src/main/test/ru/stqa/pft/sandbox/Trash.java" afterPath="$PROJECT_DIR$/sandbox/src/main/java/test/ru/stqa/pft/sandbox/Trash.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sandbox/build.gradle" afterPath="$PROJECT_DIR$/sandbox/build.gradle" />
-    </list>
+    <list default="true" id="97909f65-ccce-43be-acac-bd3b228f0dea" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/sandbox/.gradle/" />
     <ignored path="$PROJECT_DIR$/sandbox/build/" />
     <ignored path="$PROJECT_DIR$/addressbook-web-tests/.gradle/" />
