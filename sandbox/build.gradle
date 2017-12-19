@@ -9,6 +9,7 @@ dependencies{
     compile 'org.testng:testng:6.11'
 }
 
-test {
+task Alltest (type:Test) {
  useTestNG()
 }
+

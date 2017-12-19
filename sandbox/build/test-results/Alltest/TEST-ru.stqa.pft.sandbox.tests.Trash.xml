@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.stqa.pft.sandbox.tests.Trash" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-12-19T15:24:28" hostname="test001" time="0.0">
+  <properties/>
+  <testcase name="main" classname="ru.stqa.pft.sandbox.tests.Trash" time="0.0"/>
+  <system-out><![CDATA[mmmmmmmmmmmmmmm
+       Sirenevaya      ul.
+      3       apt     
+          10     
+
+ Sirenevaya ul.
+ 3 apt 
+ 10 
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
