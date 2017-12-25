@@ -26,6 +26,9 @@ task testGroups (type: Test){
         systemProperty 'browser', "${browser}"
     }
 
+    if (project.hasProperty('platform')){
+        systemProperty 'platform', "${platform}"
+    }
 
     if (project.hasProperty('target')){
         systemProperty 'target', "${target}"
@@ -44,7 +47,9 @@ task testContacts (type: Test){
     if (project.hasProperty('browser')){
         systemProperty 'browser', "${browser}"
     }
-
+    if (project.hasProperty('platform')){
+        systemProperty 'platform', "${platform}"
+    }
 
     if (project.hasProperty('target')){
         systemProperty 'target', "${target}"
